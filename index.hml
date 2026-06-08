@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake 3D - Juego de Puntos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+            background: #000;
+        }
+        
+        canvas {
+            display: block;
+        }
+        
+        #hud {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: #00ff00;
+            font-size: 24px;
+            font-weight: bold;
+            z-index: 10;
+            text-shadow: 0 0 10px #00ff00;
+        }
+        
+        #score, #length {
+            margin: 10px 0;
+        }
+        
+        #gameOver {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.9);
+            padding: 40px;
+            border: 3px solid #ff0000;
+            color: #fff;
+            text-align: center;
+            z-index: 20;
+            display: none;
+            border-radius: 10px;
+            box-shadow: 0 0 30px #ff0000;
+        }
+        
+        #gameOver h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #ff0000;
+        }
+        
+        #gameOver p {
+            font-size: 24px;
+            margin: 10px 0;
+        }
+        
+        #gameOver button {
+            margin-top: 30px;
+            padding: 15px 40px;
+            font-size: 20px;
+            background: #00ff00;
+            border: none;
+            color: #000;
+            cursor: pointer;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        #gameOver button:hover {
+            background: #00cc00;
+            transform: scale(1.05);
+        }
+        
+        #controls {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            color: #00ff00;
+            font-size: 14px;
+            text-shadow: 0 0 10px #00ff00;
+        }
+        
+        #controls p {
+            margin: 5px 0;
+        }
+        
+        .key {
+            background: #00ff00;
+            color: #000;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="hud">
+        <div id="score">Puntos: 0</div>
+        <div id="length">Longitud: 3</div>
+    </div>
+    
+    <div id="controls">
+        <p><span class="key">↑↓←→</span> o <span class="key">WASD</span> - Mover</p>
+        <p><span class="key">ESPACIO</span> - Pausa</p>
+    </div>
+    
+    <div id="gameOver">
+        <h1>¡GAME OVER!</h1>
+        <p id="finalScore">Puntos finales: 0</p>
+        <p id="finalLength">Longitud final: 3</p>
+        <button onclick="location.reload()">Jugar de Nuevo</button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>
